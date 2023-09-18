@@ -1,6 +1,6 @@
 import math
 while True:
-    print("Выберите тип операции: +, -, *, /, expon, sqrt, factorial, sin, cos, tan, exit")
+    print("Выберите тип операции: +, -, *, /, **, sqrt, factorial, sin, cos, tan, exit")
     opertype = input("")
     if opertype == "+" or opertype == "-" or opertype == "*" or opertype == "/":
         num1 = input("Введите первое число")
@@ -15,20 +15,16 @@ while True:
             print(eval(oper))
         except:
             print("Нельзя делить на ноль")
-    elif opertype == "expon":
-        num1 = float(input("Введите число"))
-        num2 = int(input("Введите степень"))
-        num = num1
+    elif opertype == "**":
+        num1 = input("Введите число")
+        num2 = input("Введите степень")
         try:
-            float(num1), int(num2)
+            num1 = float(num1)
+            num2 = int(num2)
+            print(num1**num2)
         except:
             print("Неправильно введены числа")
             continue
-        for i in range(num2-1):
-            num = num*num1
-        if num2 == 0:
-            num = 1
-        print(num)
     elif opertype == "sqrt" or opertype == "factorial":
         num = input("Введите число")
         try:
@@ -39,9 +35,9 @@ while True:
         oper = "math."+opertype+"("+ num + ")"
         print(eval(oper))
     elif opertype == "sin" or opertype == "cos" or opertype == "tan":
-        num = float(input("Введите число"))
+        num = input("Введите число")
         try:
-            float(num1)
+            num = float(num)
         except:
             print("Неправильно введены числа")
             continue
